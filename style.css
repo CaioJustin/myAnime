@@ -1,0 +1,8 @@
+*{
+    --cor-de-fundo:#1F2937;
+}
+
+
+body{
+    background: var(--cor-de-fundo);
+}
