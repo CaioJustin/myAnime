@@ -1,17 +1,45 @@
 const coluna = document.getElementById('coluna')
+let botao = document.querySelectorAll('.page-link')
+let paginaAtual=1
 
-const URL = "https://api.jikan.moe/v4/anime"
 
+botao.forEach((b)=>{
+                //add evento para cada botao 
+                b.addEventListener('click',(ev)=>{
+                    ev.preventDefault();
+                let bot = ev.currentTarget.parentNode
 
-function chamaApi() {
+                    
+
+                //adicionando classe disabled do no li 
+                bot.classList.add('disabled')
+                let NumberPageSwitch =parseInt( ev.currentTarget.dataset.bsBotao)
+                    console.log("Botao Apertado : "+ev.currentTarget+" OQUE  saiu : "+NumberPageSwitch)
+           
+              //Pegando a paginal atual e atualizando e substituido com o valor do data
+                 paginaAtual=NumberPageSwitch;
+                chamaApi(paginaAtual)
+                })
+              
+            })
+
+function chamaApi(pagina =1) {
+    const URL = `https://api.jikan.moe/v4/anime?page=${pagina}`
+     console.log("Chamando API para página:", pagina);
     try {
 
         fetch(URL).then(resposta => { return resposta.json() }).then(animes => {
                 console.log("Conectado Com Sucesso !!")
-            console.log("Infos dos ANimes: ", animes)
+            console.log("Infos dos Animes: ", animes)
            
-        
-           
+                 
+            coluna.innerHTML=""
+
+            if(animes.data.length ===0){
+                coluna.innerText= '<div class="container alert alert-warning">Não existe anime nessa pagina</div>' 
+            }
+
+
             animes.data.forEach(anime => {
                 
                 const im = anime.images.jpg.image_url;
@@ -63,7 +91,7 @@ function chamaApi() {
                 
 
             });
-                  
+              console.log("Cards carregados com sucesso!");      
         })
           
 
@@ -74,4 +102,13 @@ function chamaApi() {
 
 }
 
+
+
+
+
+
+
 chamaApi()
+document.querySelector('[data-bs-botao="1"]').parentNode.classList.add('disabled');
+
+
