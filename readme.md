@@ -10,12 +10,12 @@ Atraves da manipulação do Dom, essa aplicação criar automaticamente cards no
 
 ## Feramentas Utilizadas
 
--HTML
--CSS
--JAVASCRIPT
--CSS
--Bootstrap
--API JIKAN
+-HTML<br> 
+-CSS<br>
+-JAVASCRIPT<br>
+-CSS<br>
+-Bootstrap<br>
+-API JIKAN<br>
 
 #Como Executar
 
