@@ -41,6 +41,9 @@ function chamaApi(pagina =1) {
 
 
             animes.data.forEach(anime => {
+
+                let wrapper = document.createElement('div');
+                    wrapper.classList.add("col-xl-3","col-md-4", "col-6"); 
                 
                 const im = anime.images.jpg.image_url;
                 const titl = anime.title;
@@ -49,34 +52,42 @@ function chamaApi(pagina =1) {
                 let div = document.createElement('div')
                 div.classList.add("card")
                 div.classList.add("h-115")
-                div.classList.add("col-md-3")
-                div.classList.add("col-sm-4")
-                div.classList.add("col-6")
-                div.classList.add("col-12")
-                div.classList.add("bg-warning")
+              
+                div.style.background ="#F5F3FF"
+                div.style.border="none";
+                
                
                
                 let img = document.createElement('img')
                 img.classList.add("card-img-top")
+                img.style.height="200px"
+                img.style.objectFit = "cover";
+                img.style.width = "100%";
               
                 let divCardBody = document.createElement('div')
                 divCardBody.classList.add("card-body")
                 
                 let ptitle = document.createElement('p')
                 ptitle.classList.add("card-title")
+                ptitle.style.color='#111827'
                 
                 let ptext = document.createElement('p')
                 ptext.classList.add("card-text")
                 
                 let botao =document.createElement('button')
                 botao.classList.add("btn")
-                botao.classList.add("btn-info")
+                botao.classList.add("btn-warning")
                 botao.textContent="VER MAIS"
-                botao.classList.add("text-light")
+                botao.classList.add('fw-bold')
                 botao.type="button";
 
                 botao.onclick= ()=>{
                    alert("Nome do anime : "+titl+"\n"+"Descrição: "+txt)
+                   
+                            
+                    
+
+
                 }
 
                 img.src = im;
@@ -85,7 +96,9 @@ function chamaApi(pagina =1) {
 
                 divCardBody.append(ptitle)
                 div.append(img,divCardBody,botao)
-                coluna.append(div)
+
+                wrapper.append(div)
+                coluna.append(wrapper)
                 console.log("Chegou aqui ")
 
                 
