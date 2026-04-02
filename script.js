@@ -12,8 +12,18 @@ botao.forEach((b) => {
 
 
         //adicionando classe disabled do no li 
+
+        botao.forEach((ba)=>{ba.parentNode.classList.remove('disabled')})
+
         bot.classList.add('disabled')
+        
+
+        
+
+
+
         let NumberPageSwitch = parseInt(ev.currentTarget.dataset.bsBotao)
+        let ver =NumberPageSwitch.value
         console.log("Botao Apertado : " + ev.currentTarget + " OQUE  saiu : " + NumberPageSwitch)
 
         //Pegando a paginal atual e atualizando e substituido com o valor do data
