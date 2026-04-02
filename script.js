@@ -57,7 +57,9 @@ function chamaApi(pagina = 1) {
 
                 const im = anime.images.jpg.image_url;
                 const titl = anime.title;
-                const txt = anime.background
+                const txt = anime.synopsis
+                const year=anime.year
+                const ep =anime.episodes
 
                 let div = document.createElement('div')
                 div.classList.add("card")
@@ -96,10 +98,14 @@ function chamaApi(pagina = 1) {
 
                  let titleModel=document.getElementById("exampleModalLabel")  
                  let p=document.querySelector(".descricao")
+                 let YEAR =document.getElementById('ModalLabelYEAR')
+                 const EP =document.getElementById('ModalLabelEP')
                        
                     if(titleModel && p ){
                          titleModel.innerText=titl        
                     p.innerText=txt    
+                    YEAR.innerText=year
+                    EP.innerText=ep
                      let modal =new bootstrap.Modal(document.getElementById('exampleModal'))
                      modal.show()
                     }else{
